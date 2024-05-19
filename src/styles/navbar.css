@@ -1,0 +1,168 @@
+.navmain {
+  position: fixed;
+  z-index: 1000;
+  height: 10vh;
+  width: 70%;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  /* background-color: #ccd5ae; */
+  /* border: 1px solid; */
+}
+.innernav {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 10vh;
+  width: 100%;
+}
+.innerNavbar {
+  height: 10vh;
+  width: 50%;
+  /* border: 1px solid;*/
+}
+.navitems {
+  padding: 10px;
+}
+.navelementsText,
+.navitems,
+.hamburger {
+  height: 20px;
+  width: 30px;
+  color: black;
+}
+/* .navitems {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+.hamNav {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+}
+.hamNavItems {
+  height: 100px;
+  width: 100px;
+}
+.hamNavItems .navelements {
+  width: 50px;
+  height: 50px;
+  /* margin-left: 10px; */
+}
+@media (max-width: 400px) {
+  /* .hamburger {
+    display: block;
+  }
+  .ham {
+    display: flex;
+    justify-content: start;
+    margin: 10px;
+    padding: 0;
+    left: 0;
+    cursor: pointer;
+  }
+  .navitems {
+    display: none;
+  } */
+  /* .navmain {
+    display: none;
+  }
+  .outerMain,
+  .link,
+  .dishes,
+  .catogery {
+    margin-left: none;
+  } */
+}
+.close {
+  height: 50px;
+  width: 50px;
+  margin-bottom: 10px;
+}
+/* @media (max-width: 800px) {
+  .innernav,
+  .navmain {
+    bottom: 0;
+    width: 100vw;
+    height: 2rem;
+  }
+  .innernav {
+    display: flex;
+    flex-direction: row;
+  }
+  .link-text {
+    left: 0;
+    bottom: calc(100% + 15px);
+  }
+} */
+.push {
+  position: absolute;
+  padding: 10px;
+  right: -25px;
+  z-index: -1;
+  /* border: 1px solid; */
+  background-color: #ccd5ae;
+  border-radius: 10px;
+}
+.push:hover {
+  cursor: pointer;
+  border-right: 0.5px solid;
+}
+.logout {
+  display: flex;
+  position: relative;
+  top: -15px;
+}
+
+.aniIncre {
+  /* background-color: blue; */
+  animation: animate 0.5s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes animate {
+  from {
+    width: 50px;
+  }
+  to {
+    width: 100px;
+  }
+}
+.aniRev {
+  animation: revanimate 0.5s ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+@keyframes revanimate {
+  from {
+    width: 100px;
+  }
+  to {
+    width: 50px;
+  }
+}
+.text {
+  position: relative;
+  right: -25px;
+  top: -20px;
+}
+
+.links,.navitems{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navelementsText{
+  border: 1px solid;
+  width: fit-content;
+  padding: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: #ccd5ae;
+}

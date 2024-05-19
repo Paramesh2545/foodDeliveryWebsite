@@ -1,0 +1,205 @@
+.outerMain {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid; */
+  min-width: 100vw;
+}
+.resmainbody {
+  position: relative;
+  /* border: 1px solid; */
+  padding: 10px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  min-height: 10rem;
+  background-color: #ffffff;
+  /* min-width: fit-content; */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  color: black;
+}
+.link {
+  position: relative;
+  display: flex;
+  max-width: 450px;
+  height: 25rem;
+}
+.resmainbody p {
+  text-decoration: none;
+}
+
+.resfirst {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* justify-content: flex-start; */
+  /* max-width: fit-content; */
+  width: 100%;
+  /* flex: 1; */
+}
+.innerFirst {
+  display: flex;
+  width: 100%;
+}
+
+.restImg {
+  height: 10rem;
+  max-width: 50%;
+  border-radius: 20px;
+}
+.restaurant {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  /* flex: 1; */
+  min-height: 20rem;
+  /* min-width: fit-content; */
+  min-width: 100%;
+  width: fit-content;
+  /* border: 1px solid; */
+}
+.dist {
+  height: 100%;
+  margin-left: 1rem;
+  margin-top: 1rem;
+  max-width: 15rem;
+  /* border: 1px solid; */
+}
+.shop p,
+.user,
+.outerdots {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  min-width: 15rem;
+  /* padding: 0px 10px; */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.shopImg,
+.userImg {
+  height: 2rem;
+  min-width: 2rem;
+  margin: 5px;
+  padding: 5px;
+  background-color: #fefae0;
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+.userImg {
+  height: 30px;
+  width: 30px;
+  /* padding:0px 10px */
+}
+.outerdots {
+  position: relative;
+  right: -12px;
+}
+.dots {
+  height: 25px;
+}
+.ressecond {
+  margin-left: 5px;
+  /* width: 100%; */
+  /* flex: 1; */
+  max-width: 30%;
+  /* flex: 1; */
+}
+.ressecond p {
+  min-height: 30px;
+  max-height: 50px;
+  /* width: 100%; */
+  overflow: hidden;
+  /* white-space: nowrap; */
+  /* text-overflow: ellipsis; */
+}
+.rating .star,
+.rating p {
+  color: #ccd5ae;
+  height: 20px;
+  /* width: 20; */
+  margin: 5px;
+  overflow: none;
+}
+.rating .star {
+  width: 20px;
+}
+.rating {
+  width: 100%;
+  display: flex;
+}
+.order {
+  display: flex;
+  /* justify-content: flex-end; */
+  align-items: center;
+  /* position: relative;
+  float: right;
+  margin-left: auto;
+  margin-right: 10px; */
+}
+.menuitemsbtn {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #faedcd;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.resthird {
+  /* width: 50%; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+}
+.offers {
+  min-height: fit-content;
+  min-width: fit-content;
+}
+.menuitemsbtn:hover {
+  scale: 1.1;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.order p {
+  text-decoration: none;
+  color: black;
+}
+.shop {
+  display: flex;
+}
+.fav {
+  position: relative;
+  right: 0;
+  margin: 10px;
+}
+.favIcon {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 50%;
+  padding: 5px;
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+.orderFood {
+  background-color: #ccd5ae;
+}
+.back {
+  height: 50px;
+  width: 50px;
+  color: white;
+  border-radius: 50%;
+  position: relative;
+  padding: 7px;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
+.backicon {
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

@@ -1,0 +1,111 @@
+.mainClass,
+.outerMainClass {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+.nav {
+  width: 10vw;
+}
+.homebody {
+  width: 90vw;
+}
+.main {
+  width: 100vw;
+  height: 10vh;
+}
+.top {
+  min-width: 100vw;
+  height: 10vh;
+  border: 1px solid;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  background-color: #faedcd;
+  /* float: right; */
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.right {
+  float: right;
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+.top img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+.location {
+  border: 1px solid;
+  font-size: large;
+  cursor: pointer;
+}
+.sideLoc {
+  z-index: 10;
+  position: fixed;
+  /* display: flex; */
+  justify-content: center;
+  height: 100vh;
+  background-color: white;
+  width: 30%;
+  padding: 15px;
+}
+.Current {
+  display: flex;
+  /* justify-content: center; */
+  border: 1px solid;
+  padding: 20px;
+  cursor: pointer;
+}
+.text-cur {
+  margin-left: 10px;
+  max-width: 80%;
+  overflow: auto;
+  margin: auto;
+}
+.text-cur:hover {
+  color: rgb(210, 210, 116);
+}
+#icon {
+  height: 30px;
+  width: 30px;
+}
+.searchLoc {
+  width: 100%;
+  position: relative;
+  border: 1px solid;
+  /* margin: 10px; */
+  padding: 10px;
+  max-width: 90%;
+  display: flex;
+  justify-content: center;
+  border-radius: 30px;
+  margin-bottom: 10px;
+}
+.searchLoc input {
+  max-width: 80%;
+  border: none;
+  padding-left: 3px;
+}
+.searchLoc input:focus {
+  outline: none;
+  box-shadow: none;
+}
+.line {
+  border-top: 1px solid;
+}
+.searchRes {
+  padding: 10px;
+}
+.mainBodyc {
+  width: 90vw;
+  position: relative;
+}
+.cart,
+.profile {
+  margin: 20px;
+}

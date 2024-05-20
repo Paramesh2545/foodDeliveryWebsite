@@ -10,9 +10,11 @@ import { PiHamburgerBold } from "react-icons/pi";
 import { IoClose } from "react-icons/io5";
 import { FaLessThan } from "react-icons/fa";
 import { CiLogout } from "react-icons/ci";
+import { useRestaurantContext } from "../context/RestaurantContext";
 const Nav = () => {
   const [hamClicked, setHamClicked] = useState(false);
   const [small, setSmall] = useState(false);
+  const { darkMode, setDarkMode } = useRestaurantContext();
   const handleResize = () => {
     if (window.innerWidth < 400) {
       setSmall(true);
@@ -23,38 +25,95 @@ const Nav = () => {
     setHamClicked(!hamClicked);
   };
   return (
-    <div className={!hamClicked ? "navmain" : "navmain aniIncre"}>
-      <div className={!hamClicked ? "innerNavbar" : "innerNavbar aniIncre"}>
+    <div className="navmain">
+      <div className="innerNavbar">
         {/* <div className="push" onClick={handlePush}>
           <FaLessThan />
         </div> */}
         <div className="innernav">
           <div className="navitems first">
-            <NavLink to="/" className="links"  style={{
-                      textDecoration: "none",
-                    }}>
-              <h3 className="navelementsText">Home</h3>
+            <NavLink
+              to="/"
+              className="links"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              <h3
+                className={
+                  darkMode ? "navelementsText dark" : "navelementsText"
+                }
+              >
+                Home
+              </h3>
             </NavLink>
           </div>
           <div className="navitems second">
-            <NavLink to="/near" className="links"  style={{
-                      textDecoration: "none",
-                    }}>
-              <h3 className="navelementsText">NearBy</h3>
+            <NavLink
+              to="/restaurant"
+              className="links"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              <h3
+                className={
+                  darkMode ? "navelementsText dark" : "navelementsText"
+                }
+              >
+                NearBy
+              </h3>
+            </NavLink>
+          </div>
+          <div className="navitems second">
+            <NavLink
+              to="/near"
+              className="links"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              <h3
+                className={
+                  darkMode ? "navelementsText dark" : "navelementsText"
+                }
+              >
+                Maps
+              </h3>
             </NavLink>
           </div>
           <div className="navitems third">
-            <NavLink to="/cart" className="links"  style={{
-                      textDecoration: "none",
-                    }}>
-              <h3 className="navelementsText">Cart</h3>
+            <NavLink
+              to="/cart"
+              className="links"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              <h3
+                className={
+                  darkMode ? "navelementsText dark" : "navelementsText"
+                }
+              >
+                Cart
+              </h3>
             </NavLink>
           </div>
           <div className="navitems fourth">
-            <NavLink to="/profile" className="links"  style={{
-                      textDecoration: "none",
-                    }}>
-              <h3 className="navelementsText">Profile</h3>
+            <NavLink
+              to="/profile"
+              className="links"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              <h3
+                className={
+                  darkMode ? "navelementsText dark" : "navelementsText"
+                }
+              >
+                Profile
+              </h3>
             </NavLink>
           </div>
         </div>

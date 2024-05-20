@@ -17,6 +17,7 @@ import { SlBasket } from "react-icons/sl";
 import { IoMdPerson } from "react-icons/io";
 import { TiInfoLarge } from "react-icons/ti";
 import { useRestaurantContext } from "../context/RestaurantContext";
+import Theme from "../components/Theme";
 // const getReverseGeoLocation = ({latitude, longitude}) => {
 //   const [reverseGeoLocation, setReverseGeoLocation] = useState(null);
 //   const url = `https://trueway-geocoding.p.rapidapi.com/ReverseGeocode?location="${setlatitude},${setlongitude}"&language=en`;
@@ -71,7 +72,6 @@ const Home = () => {
   // const [lat, setLat] = useState("");
   // const [lng, setLng] = useState("");
   const { lat, setLat, lng, setLng } = useRestaurantContext();
-
   useEffect(() => {
     const timer = setTimeout(() => {
       setShow(false);
@@ -122,6 +122,7 @@ const Home = () => {
 };
 
 const HomeBody = (props) => {
+  const { darkMode, setDarkMode } = useRestaurantContext();
   useEffect(() => {
     // console.log(searching);
   }, []);
@@ -130,9 +131,9 @@ const HomeBody = (props) => {
   const [finalGeocode, setFinalGeocode] = useState(null); // for geolocation latitude longitude
 
   var latitude = props.latitude;
-  console.log("latitude from homebody:" + latitude);
+  // console.log("latitude from homebody:" + latitude);
   var longitude = props.longitude;
-  console.log(longitude);
+  // console.log(longitude);
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState(null);
   const [searching, setSearching] = useState(false);
@@ -231,19 +232,20 @@ const HomeBody = (props) => {
 
   return (
     <div className="mainbody">
-      <div className="main">
+      <div className={darkMode ? "main-dark" : "main-light"}>
         <div className="top">
           <div className="left"></div>
           <div className="right">
+            <Theme />
             <div className="location" onClick={openside} id="location">
               <CiLocationOn />
               {/* <p>{geolocation.address}</p> */}
             </div>
-            <NavLink to="/">
-              <div className="topImg">
-                <img src="src/assets/logo-removebg.png" alt="" />
-              </div>
-            </NavLink>
+            {/* <NavLink to="/"> */}
+            <div className="topImg">
+              <img src="src/assets/logo-removebg.png" alt="" />
+            </div>
+            {/* </NavLink> */}
           </div>
         </div>
         {sideLocation && (
@@ -285,7 +287,10 @@ const HomeBody = (props) => {
       {/* <div className="nav">
         <Nav className="nav" />
       </div> */}
-      <div className="mainBodyc" onClick={closepopup}>
+      <div
+        className={!darkMode ? "mainBodyc-light" : "mainBodyc-dark"}
+        onClick={closepopup}
+      >
         <Advert />
         <HomeMain latitude={latitude} longitude={longitude} />
       </div>

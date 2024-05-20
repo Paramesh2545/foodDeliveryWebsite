@@ -14,7 +14,8 @@ import { MdFavoriteBorder } from "react-icons/md";
 import { MdOutlineFavorite } from "react-icons/md";
 
 const HomeMain = (props) => {
-  const { setRestaurantData, cat, setCat } = useRestaurantContext();
+  const { setRestaurantData, cat, setCat, darkMode, setDarkMode } =
+    useRestaurantContext();
   const { fav, setFav } = useRestaurantContext();
   const lat = parseFloat(props.latitude);
   const lng = parseFloat(props.longitude);
@@ -130,7 +131,11 @@ const HomeMain = (props) => {
                     className="link"
                     onClick={() => handleViewMenu(restaurant)}
                   >
-                    <div className="resmainbody">
+                    <div
+                      className={
+                        darkMode ? "resmainbody-dark" : "resmainbody-light"
+                      }
+                    >
                       <div className="restaurant" key={restaurant.id}>
                         <div className="resfirst">
                           <div className="innerFirst">

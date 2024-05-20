@@ -11,6 +11,7 @@ export const RestaurantProvider = ({ children }) => {
   const [cart, setCart] = useState(null);
   const [lat, setLat] = useState("");
   const [lng, setLng] = useState("");
+  const [darkMode, setDarkMode] = useState(false);
   return (
     <RestaurantContext.Provider
       value={{
@@ -26,6 +27,8 @@ export const RestaurantProvider = ({ children }) => {
         setLng,
         lat,
         setLat,
+        darkMode,
+        setDarkMode,
       }}
     >
       {children}

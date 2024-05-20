@@ -1,12 +1,11 @@
 .outerMain {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
   align-items: center;
   /* border: 1px solid; */
   min-width: 100vw;
 }
-.resmainbody {
+.resmainbody-light,
+.resmainbody-dark {
   position: relative;
   /* border: 1px solid; */
   padding: 10px;
@@ -14,7 +13,6 @@
   margin-bottom: 20px;
   border-radius: 30px;
   min-height: 10rem;
-  background-color: #ffffff;
   /* min-width: fit-content; */
   width: 100%;
   display: flex;
@@ -23,13 +21,23 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   color: black;
 }
+
+.resmainbody-light {
+  background-color: #ffffff;
+  color: black;
+}
+.resmainbody-dark {
+  background-color: #261b41;
+  /* color: white; */
+}
+
 .link {
   position: relative;
   display: flex;
   max-width: 450px;
   height: 25rem;
 }
-.resmainbody p {
+.resmainbody-light p {
   text-decoration: none;
 }
 
@@ -55,7 +63,7 @@
 .restaurant {
   display: flex;
   justify-content: flex-start;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   /* flex: 1; */
   min-height: 20rem;
   /* min-width: fit-content; */

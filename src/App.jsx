@@ -23,6 +23,7 @@ import Restaurant from "./components/home/Restaurant";
 import { RestaurantProvider } from "./context/RestaurantContext";
 import MouseTracker from "./components/MouseTracker";
 import ErrorBoundary from "./ErrorBoundary";
+import Intro from "./pages/Intro";
 
 const App = () => {
   const longitude = createContext(null);
@@ -33,7 +34,8 @@ const App = () => {
         <BrowserRouter>
           <MouseTracker />
           <Routes>
-            <Route path="/" element={<HomeWithNav />} />
+            <Route path="/" element={<IntroWithNav />} />
+            <Route path="/restaurant" element={<HomeWithNav />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/near" element={<NearbyWithNav />} />
@@ -48,6 +50,16 @@ const App = () => {
 };
 
 // Wrapper components for routes with Nav
+
+const IntroWithNav = () => {
+  return (
+    <>
+      <Nav />
+      <Intro />
+    </>
+  );
+};
+
 const HomeWithNav = () => {
   return <Home />;
 };

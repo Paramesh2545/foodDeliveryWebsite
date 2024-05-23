@@ -232,22 +232,20 @@ const HomeBody = (props) => {
 
   return (
     <div className="mainbody">
+      <div className="location" onClick={openside} id="location">
+        <CiLocationOn />
+      </div>
       <div className={darkMode ? "main-dark" : "main-light"}>
-        <div className="top">
+        {/* <div className="top">
           <div className="left"></div>
           <div className="right">
             <Theme />
-            <div className="location" onClick={openside} id="location">
-              <CiLocationOn />
-              {/* <p>{geolocation.address}</p> */}
-            </div>
-            {/* <NavLink to="/"> */}
             <div className="topImg">
               <img src="src/assets/logo-removebg.png" alt="" />
             </div>
-            {/* </NavLink> */}
           </div>
-        </div>
+        </div> */}
+
         {sideLocation && (
           <div className="sideLoc">
             <div className="searchLoc">

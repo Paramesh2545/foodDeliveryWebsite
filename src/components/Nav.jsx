@@ -11,6 +11,7 @@ import { IoClose } from "react-icons/io5";
 import { FaLessThan } from "react-icons/fa";
 import { CiLogout } from "react-icons/ci";
 import { useRestaurantContext } from "../context/RestaurantContext";
+import Theme from "../components/Theme";
 const Nav = () => {
   const [hamClicked, setHamClicked] = useState(false);
   const [small, setSmall] = useState(false);
@@ -122,6 +123,9 @@ const Nav = () => {
         <CiLogout />
         {hamClicked && <p className="text">Logout</p>}
       </div> */}
+      <div className="theme">
+        <Theme />
+      </div>
     </div>
   );
 };

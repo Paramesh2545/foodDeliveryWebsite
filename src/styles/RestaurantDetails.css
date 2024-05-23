@@ -4,6 +4,9 @@
   /* border: 1px solid; */
   min-width: 100vw;
 }
+.link:hover {
+  transform: translateY(-10px);
+}
 .resmainbody-light,
 .resmainbody-dark {
   position: relative;
@@ -27,7 +30,7 @@
   color: black;
 }
 .resmainbody-dark {
-  background-color: #261b41;
+  background-color: #422a5b;
   /* color: white; */
 }
 

@@ -17,7 +17,7 @@
   position: relative;
 }
 .main-dark {
-  background-color: #261b41;
+  background-color: #594273;
   color: white;
 }
 .top {
@@ -46,10 +46,28 @@
   border-radius: 50%;
 }
 .location {
-  border: 1px solid;
-  font-size: large;
+  border: 3px solid;
+  border-radius: 50%;
+  font-size: x-large;
   cursor: pointer;
-  padding-left: 10px;
+  /* padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px; */
+  padding: 5px 10px;
+
+  width: fit-content;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 100000;
+  margin: 20px;
+}
+.location:hover {
+  scale: 1.1;
+  background-color: black;
+  color: white;
+  animation-duration: 1s;
 }
 .sideLoc {
   z-index: 10;
@@ -113,8 +131,11 @@
   width: 100vw;
   position: relative;
 }
+.mainBodyc-light {
+  background-color: #f5f5f5;
+}
 .mainBodyc-dark {
-  background-color: #120a21;
+  background-color: #2e1a47;
 }
 .cart,
 .profile {

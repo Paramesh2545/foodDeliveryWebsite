@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useRef, useState } from "react";
 
 const RestaurantContext = createContext();
 
@@ -12,6 +12,7 @@ export const RestaurantProvider = ({ children }) => {
   const [lat, setLat] = useState("");
   const [lng, setLng] = useState("");
   const [darkMode, setDarkMode] = useState(false);
+  const cafe= useRef();
   return (
     <RestaurantContext.Provider
       value={{
@@ -29,6 +30,7 @@ export const RestaurantProvider = ({ children }) => {
         setLat,
         darkMode,
         setDarkMode,
+        cafe,
       }}
     >
       {children}

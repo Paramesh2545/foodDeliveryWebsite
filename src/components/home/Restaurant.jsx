@@ -36,25 +36,24 @@ const restaurantData = () => {
   useEffect(() => {
     // getBG();
     // console.log(images);
-    const get = async () => {
-      try {
-        const BASE_URL = "http://localhost:4000";
-        const response = await axios.get(`${BASE_URL}/menuItems`, {
-          cuisine: "Indian",
-        });
-        // setMenu(response.data);
-        menu = response.data;
-        console.log(response.data);
-        let filteredMenuItems = menu.filter((item) =>
-          restaurantData.cuisine.includes(item.name)
-        );
-        console.log(filteredMenuItems);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-
-    get();
+    // const get = async () => {
+    //   try {
+    //     const BASE_URL = "http://localhost:4000";
+    //     const response = await axios.get(`${BASE_URL}/menuItems`, {
+    //       cuisine: "Indian",
+    //     });
+    //     // setMenu(response.data);
+    //     menu = response.data;
+    //     console.log(response.data);
+    //     let filteredMenuItems = menu.filter((item) =>
+    //       restaurantData.cuisine.includes(item.name)
+    //     );
+    //     console.log(filteredMenuItems);
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // };
+    // get();
   }, []);
 
   const { restaurantData } = useRestaurantContext();
@@ -112,12 +111,16 @@ const restaurantData = () => {
           </div>
         </div>
       </div>
-      {/* {menu.map((men) => (
-        <>
-          {men.name}
-          <div className="menuCard"></div>
-        </>
-      ))} */}
+      <div className="menuItemsOuter">
+        <div className="about">
+          <h2>Veg Biryan</h2>
+          <p>1K+ Rating</p>
+          <p className="cost">R200</p>
+        </div>
+        <div className="image">
+          <img src="src/assets/biryani.jpg" alt="" />
+        </div>
+      </div>
     </div>
   );
 };

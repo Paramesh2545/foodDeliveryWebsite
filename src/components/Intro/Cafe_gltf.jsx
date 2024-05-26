@@ -8,50 +8,17 @@ import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useFrame } from "@react-three/fiber";
-
 export function Cafe(props) {
   const { nodes, materials } = useGLTF("src/assets/models/cafe_gltf.gltf");
-  const cafe = useRef();
   const [setted, setSetted] = useState(false);
+  const cafe = useRef();
   useEffect(() => {
     if (!setted) {
       cafe.current.rotation.y = 10.5;
       setSetted(true);
     }
   }, []);
-
-  const [scrollDirection, setScrollDirection] = useState("");
-  const prevScrollY = useRef(0);
   const lenis = new Lenis();
-  const [scrolling, setScrolling] = useState(false);
-
-  lenis.on("scroll", (e) => {
-    if (e.__isScrolling) {
-      setScrolling(true);
-      let lastScrollY = window.scrollY;
-      if (lastScrollY > prevScrollY.current) {
-        setScrollDirection("down");
-        console.log("down");
-      } else {
-        setScrollDirection("up");
-        console.log("up");
-      }
-
-      prevScrollY.current = scroll;
-    } else {
-      setScrolling(false);
-    }
-  });
-
-  useFrame(() => {
-    if (scrolling) {
-      if (scrollDirection === "up") {
-        cafe.current.rotation.y += 0.001 * Math.PI;
-      } else if (scrollDirection === "down") {
-        cafe.current.rotation.y -= 0.01 * Math.PI;
-      }
-    }
-  });
 
   function raf(time) {
     lenis.raf(time);

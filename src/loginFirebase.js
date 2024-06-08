@@ -2,13 +2,13 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 const firebaseConfig = {
-  apiKey: process.env.apiKey,
-  authDomain: process.env.authDomain,
-  projectId: process.env.projectId,
-  storageBucket: process.env.storageBucket,
-  messagingSenderId: process.env.messagingSenderId,
-  appId: process.env.appId,
-  measurementId: process.env.measurementId,
+  apiKey: "AIzaSyCdAO7J32HZGTUH2u2MJ54gDGn820RMY54",
+  authDomain: "hungruheist.firebaseapp.com",
+  projectId: "hungruheist",
+  storageBucket: "hungruheist.appspot.com",
+  messagingSenderId: "81863539061",
+  appId: "1:81863539061:web:298495b638e62f14fd7b3c",
+  measurementId: "G-D92P4WCRCD",
 };
 
 const app = initializeApp(firebaseConfig);

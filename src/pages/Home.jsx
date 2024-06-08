@@ -82,8 +82,8 @@ const Home = () => {
     getLocation()
       .then((location) => {
         const { latitude, longitude } = location;
-        // console.log("Latitude:", latitude);
-        // console.log("Longitude:", longitude);
+        console.log("Latitude:", latitude);
+        console.log("Longitude:", longitude);
         setLat(latitude);
         setLng(longitude);
         setPresent(lat, lng);
@@ -106,7 +106,7 @@ const Home = () => {
 
   return (
     <div className="outerMainClass">
-      {show && <Loader />}
+      {/* {show && <Loader />} */}
       <div className="mainClass">
         <Nav />
         <HomeBody

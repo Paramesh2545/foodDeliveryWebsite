@@ -81,7 +81,7 @@
 .btnBox :hover {
   cursor: pointer;
 }
-.container {
+.containe {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,7 +91,7 @@
   flex: 1;
   border-top: 2px solid black;
 }
-.text {
+.tex {
   margin: 0 10px;
 }
 @media (max-width: 1000px) {

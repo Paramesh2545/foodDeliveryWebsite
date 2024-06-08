@@ -134,7 +134,7 @@ const Signup = () => {
           </div>
           <div className="container">
             <div className="line"></div>
-            <div className="text">Signup with Google</div>
+            <div className="tex">Signup with Google</div>
             <div className="line"></div>
           </div>
           <br />

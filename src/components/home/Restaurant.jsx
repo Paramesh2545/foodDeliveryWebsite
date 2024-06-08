@@ -11,31 +11,18 @@ import HomTopBar from "./HomTopBar";
 import "../../styles/RestMenu.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import axios from "axios";
+import { Menu } from "../../constants/Menuitems";
+import { auth } from "../../loginFirebase";
+import { useLocalStorage } from "../../Hooks/useLocalStorage";
 
 const restaurantData = () => {
   const [query, setQuery] = useState("");
   const [images, setImages] = useState([]);
+  const { currentUserId } = useRestaurantContext();
   let menu = [];
-  // const getBG = async () => {
-  //   try {
-  //     const response = await fetch(
-  //       `https://api.unsplash.com/search/photos?query=food-background`,
-  //       {
-  //         headers: {
-  //           Authorization:
-  //             "Client-ID 4mWJt3hmO0nxOTRn1xDKpqV1g_eM9cPKZ71kNwVq1AQ", // Replace YOUR_ACCESS_KEY_HERE with your Unsplash access key
-  //         },
-  //       }
-  //     );
-  //     const data = await response.json();
-  //     setImages(data.results);
-  //   } catch (error) {
-  //     console.error("Error fetching images:", error);
-  //   }
-  // };
+  // const cartItems = [{ restId, items: [{ id, quant }] }];
+  const { setItem, getItem } = useLocalStorage("value");
   useEffect(() => {
-    // getBG();
-    // console.log(images);
     // const get = async () => {
     //   try {
     //     const BASE_URL = "http://localhost:4000";
@@ -54,7 +41,37 @@ const restaurantData = () => {
     //   }
     // };
     // get();
+    // const cart = async () => {
+    //   try {
+    //     console.log(auth.currentUser.uid);
+    //     const uid = auth.currentUser.uid.toString();
+    //     console.log(typeof uid);
+    //     const BASE_URL = "http://localhost:4000";
+    //     const response = await axios.get(`${BASE_URL}/getCart`, {
+    //       params: {
+    //         uid: uid,
+    //       },
+    //     });
+    //     console.log(response);
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // };
+    // cart();
+    // const add = () => {
+    //   setItem([{ restId: 2 }, [{ item: 1 }, { item: 2 }]]);
+    // };
+    // add();
+    // const get = () => {
+    //   console.log(getItem());
+    // };
+    // get();
+    // add("1", "2");
   }, []);
+  const [cart, setCart] = useState(null);
+  const add = ({ details }) => {
+    setCart(...cart, details);
+  };
 
   const { restaurantData } = useRestaurantContext();
   console.log(restaurantData);
@@ -112,14 +129,23 @@ const restaurantData = () => {
         </div>
       </div>
       <div className="menuItemsOuter">
-        <div className="about">
-          <h2>Veg Biryan</h2>
-          <p>1K+ Rating</p>
-          <p className="cost">R200</p>
-        </div>
-        <div className="image">
-          <img src="src/assets/biryani.jpg" alt="" />
-        </div>
+        {/* <div className="innerMenuitems"> */}
+        {Menu.map((men) => (
+          <div className="menuitem" key={men.id}>
+            <img src={men.url} alt="" className="img" />
+            <div className="about">
+              <div className="innerabout">
+                <h2>{men.name}</h2>
+                <p>{men.Rating} Rating</p>
+                <p className="cost">₹{men.price}</p>
+              </div>
+              <div className="btn">
+                <button>Add</button>
+              </div>
+            </div>
+          </div>
+        ))}
+        {/* </div> */}
       </div>
     </div>
   );

@@ -1,26 +1,34 @@
 const { initializeApp, cert } = require("firebase-admin/app");
 const { getFirestore } = require("firebase-admin/firestore");
 require("dotenv").config();
+
 const serviceAccount = {
-  type: process.env.firebase_type,
-  project_id: `${process.env.firebase_project_id}`,
+  type: "service_account",
+  project_id: process.env.firebase_project_id,
   private_key_id: process.env.firebase_private_key_id,
-  private_key: process.env.firebase_private_key, // Handle newlines in the private key
-  client_email: `${process.env.firebase_client_email}`,
-  client_id: `${process.env.firebase_client_id}`,
-  auth_uri: `${process.env.firebase_auth_uri}`,
-  token_uri: process.env.firebase_token_uri,
-  auth_provider_x509_cert_url: process.env.firebase_auth_provider_x509_cert_url,
+  private_key: process.env.FIREBASE_PRIVATE_KEY
+    ? process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, "\n")
+    : undefined,
+  client_email: process.env.firebase_client_email,
+  client_id: process.env.firebase_client_id,
+  auth_uri: "https://accounts.google.com/o/oauth2/auth",
+  token_uri: "https://accounts.google.com/o/oauth2/token",
+  auth_provider_x509_cert_url: "https://www.googleapis.com/oauth2/v1/certs",
   client_x509_cert_url: process.env.firebase_universe_domain,
 };
+
+if (!serviceAccount.project_id) {
+  throw new Error(
+    "FIREBASE_PROJECT_ID is not defined" + serviceAccount.project_id
+  );
+  // console.log("firebase project id not defined");
+}
 const admin = require("firebase-admin");
-// const credentials = require("./serviceAccountKey.json");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
 });
-// const auth = getAuth(app);
 const db = admin.firestore();
 const cuisine = db.collection("cuisine");
 
-module.exports = { db, admin, cuisine };
+module.exports = { db, admin, cuisine, serviceAccount };

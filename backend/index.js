@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const { db, admin, cuisine } = require("./firebase-config.js");
+const { db, admin, cuisine, serviceAccount } = require("./firebase-config.js");
 const axios = require("axios");
 const { collection, getDocs, doc, getDoc } = require("firebase/firestore");
 const app = express();
@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.json("hola");
+  res.json("holaa");
 });
 
 // app.auth().createUser({})
@@ -57,6 +57,52 @@ app.get("/menuItems", async (req, res) => {
   } catch (err) {
     console.log(err);
     return res.status(500).json(err);
+  }
+});
+
+app.get("/restaurantDetails", async (req, res) => {
+  try {
+    // const snapshot
+    const restaurant = db.collection("Restaurants");
+    const snapshot = await restaurant.get();
+    const resDetails = [];
+    snapshot.forEach((doc) => {
+      resDetails.push(doc.data());
+    });
+    console.log(resDetails);
+    return res.send(resDetails);
+  } catch (err) {
+    console.error(err);
+  }
+});
+
+app.get("/getCart", async (req, res) => {
+  try {
+    const uid = req.query.uid;
+    const cart = db.collection("cartItems");
+    console.log(uid);
+    cart
+      .doc(uid)
+      .get()
+      .then((docSnapshot) => {
+        if (docSnapshot.exists) {
+          return res.status(200).json(docSnapshot.data());
+        } else {
+          cart
+            .doc(uid)
+            .set({})
+            .then(() => {
+              return res.status(200);
+            })
+            .catch((err) => {
+              return res.status(500).json(err);
+            });
+        }
+      });
+  } catch (err) {
+    console.error(err);
+    // console.log("error bro");
+    // console.log(req.query.uid);
   }
 });
 

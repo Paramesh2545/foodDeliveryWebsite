@@ -8,13 +8,13 @@ const Theme = () => {
   };
   return (
     <div onClick={mode}>
-      <label class="switch">
+      <label className="switch">
         <input
           type="checkbox"
           checked={darkMode}
           onChange={(e) => setDarkMode((prevTheme) => !prevTheme)}
         />
-        <span class="slider"></span>
+        <span className="slider"></span>
       </label>
     </div>
   );

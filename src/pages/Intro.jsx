@@ -12,6 +12,7 @@ import { ScrollTrigger } from "gsap/all";
 import { useRestaurantContext } from "../context/RestaurantContext";
 import { PiMouseScrollDuotone } from "react-icons/pi";
 import { NavLink } from "react-router-dom";
+import { auth } from "../loginFirebase";
 
 const Intro = () => {
   // const [stickySection, setStickySection] = useState(null);
@@ -34,6 +35,10 @@ const Intro = () => {
   //   window.addEventListener('scroll', handleScroll);
   //   return () => window.removeEventListener('scroll', handleScroll);
   // }, []);
+
+  useEffect(() => {
+    console.log(auth.currentUser);
+  }, []);
 
   return (
     <div className="fullIntroDIV">

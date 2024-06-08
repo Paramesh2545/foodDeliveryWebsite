@@ -12,6 +12,7 @@ export const RestaurantProvider = ({ children }) => {
   const [lat, setLat] = useState("");
   const [lng, setLng] = useState("");
   const [darkMode, setDarkMode] = useState(false);
+  const [currentUserId, setCurrentUserId]= useState(null)
   const cafe= useRef();
   return (
     <RestaurantContext.Provider
@@ -31,6 +32,8 @@ export const RestaurantProvider = ({ children }) => {
         darkMode,
         setDarkMode,
         cafe,
+        currentUserId,
+        setCurrentUserId,
       }}
     >
       {children}

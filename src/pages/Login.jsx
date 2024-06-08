@@ -4,16 +4,17 @@ import { MdAlternateEmail } from "react-icons/md";
 import { MdOutlinePassword } from "react-icons/md";
 import { FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
-// import { auth } from "../loginFirebase";
+import { auth, provider } from "../loginFirebase";
 import { signInWithEmailAndPassword } from "firebase/auth/web-extension";
-// import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { useRestaurantContext } from "../context/RestaurantContext";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [emailErr, setEmailErr] = useState(false);
   const [pass, setPass] = useState("");
   const [passErr, setPassErr] = useState(false);
   var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const { currentUserId, setCurrentUserId } = useRestaurantContext();
   var temp = true;
   const validate = (e) => {
     e.preventDefault();
@@ -33,6 +34,8 @@ const Login = () => {
       try {
         signInWithEmailAndPassword(auth, email, pass).then((userCredential) => {
           const user = userCredential.user;
+          console.log(auth.currentUser);
+          setCurrentUserId(auth.currentUser.uid);
           if (location.pathname !== "/") {
             window.location.href = "/";
           }
@@ -44,11 +47,15 @@ const Login = () => {
   };
   const google = async (e) => {
     e.preventDefault();
-    const googleProvider = new GoogleAuthProvider();
-    await signInWithPopup(auth, googleProvider);
-    console.log(auth.currentUser);
-    if (location.pathname !== "/") {
-      window.location.href = "/";
+    try {
+      const res = await signInWithPopup(auth, provider);
+      console.log(auth.currentUser.uid);
+      setCurrentUserId(auth.currentUser.uid);
+      if (location.pathname !== "/") {
+        window.location.href = "/";
+      }
+    } catch (e) {
+      console.log(e);
     }
   };
   return (
@@ -93,9 +100,9 @@ const Login = () => {
               </Link>
             </div>
           </div>
-          <div className="container">
+          <div className="contain">
             <div className="line"></div>
-            <div className="text">Login with Google</div>
+            <div className="tex">Login with Google</div>
             <div className="line"></div>
           </div>
           <div className="google">

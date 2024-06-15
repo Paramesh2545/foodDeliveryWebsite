@@ -27,6 +27,9 @@ const Nav = () => {
   };
   return (
     <div className="navmain">
+      <div className="logo">
+        <img src="src/assets/logo-removebg.png" alt="" className="logoimg"/>
+      </div>
       <div className="innerNavbar">
         {/* <div className="push" onClick={handlePush}>
           <FaLessThan />

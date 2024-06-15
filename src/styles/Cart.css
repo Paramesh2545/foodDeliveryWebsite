@@ -1,0 +1,153 @@
+.outerCartWrapper {
+  background-color: #cdcdcd;
+  /* height: 100vh; */
+  display: grid;
+  place-items: center;
+  font-family: "Roboto Condensed", sans-serif;
+  font-style: normal;
+  transition: all 1s ease-in-out;
+}
+
+.cartWrapper {
+  width: 90%;
+  height: 90vh;
+  margin-top: 100px;
+  border-radius: 30px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: white;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: " items rightSide";
+  transition: all 1s ease-in-out;
+}
+
+.cartItems {
+  grid-area: items;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.items {
+  /* height:  */
+  width: 90%;
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  padding: 10px;
+  /* border: 1px solid; */
+  margin: 6px;
+}
+
+.items .itemImg {
+  position: relative;
+  height: 100px;
+  border-radius: 10px;
+  margin: 5px;
+}
+.items .left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.items .right .quantity {
+  border: 0.5px solid gray;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 10px;
+}
+
+.items .right .quantity .btn {
+  background-color: white;
+  border: none;
+  margin: 3px 10px;
+}
+
+.bin {
+  margin: 0px 10px;
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  padding: 4px;
+  border-radius: 10px;
+}
+
+.cartRight {
+  grid-area: rightSide;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 80%;
+  height: 90vh;
+  margin-left: 30px;
+  transition: all 1s ease-in-out;
+}
+
+.coupon {
+  background-color: #f4f5f8;
+  border-radius: 10px;
+  padding: 10px;
+  width: 80%;
+  margin: 10px 0px;
+  border: none;
+}
+.coupon:focus {
+  border: none;
+  outline: none;
+}
+hr {
+  width: 90%;
+}
+.bar {
+  margin: 7px 0px;
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.checkoutBtn {
+  width: 70%;
+  background-color: #ff8606;
+  border: none;
+  padding: 7px 0px;
+  border-radius: 30px;
+  cursor: pointer;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.or,
+.paypal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+.or p {
+  margin: 0px 8px;
+}
+.paypal {
+  border: 0.5px solid gray;
+  border-radius: 30px;
+  background-color: #1e90ff;
+  width: 70%;
+  padding: 5px 0px;
+  margin-top: 10px;
+}
+
+@media screen and (max-width: 750px) {
+  .cartWrapper {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-areas:
+      "items"
+      "rightSide";
+  }
+}

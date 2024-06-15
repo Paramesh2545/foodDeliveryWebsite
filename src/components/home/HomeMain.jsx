@@ -14,6 +14,7 @@ import { MdFavoriteBorder } from "react-icons/md";
 import { MdOutlineFavorite } from "react-icons/md";
 import { MdOutlineMenuBook } from "react-icons/md";
 import { useFav } from "../../Hooks/useFav";
+
 const HomeMain = (props) => {
   const { setRestaurantData, cat, setCat, darkMode, setDarkMode } =
     useRestaurantContext();
@@ -213,8 +214,11 @@ const HomeMain = (props) => {
                   // >
                   <div
                     className={
-                      darkMode ? "resmainbody-dark" : "resmainbody-light link"
+                      darkMode
+                        ? "resmainbody-dark moveUP "
+                        : "resmainbody-light moveUP"
                     }
+                    key={restaurant.id}
                   >
                     <div className="restaurant" key={restaurant.id}>
                       <div className="resfirst">
@@ -226,9 +230,6 @@ const HomeMain = (props) => {
                           />
                           <div className="ressecond">
                             <h2 className="resName">{restaurant.name}</h2>
-                            <p className="resDetails">
-                              {restaurant.description}
-                            </p>
                             <div className="rating">
                               <MdStars className="star" />
                               <p>{restaurant.rating} ratings</p>
@@ -280,6 +281,8 @@ const HomeMain = (props) => {
                           >
                             {/* <p className="menuitemsbtn">see menu items</p> */}
                             <MdOutlineMenuBook className="menuitemsbtn menubtn" />
+                            <h3>Explore our</h3>
+                            <h3>menu</h3>
                           </Link>
                         </div>
                       </div>

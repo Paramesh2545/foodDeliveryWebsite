@@ -15,29 +15,36 @@ import { NavLink } from "react-router-dom";
 import { auth } from "../loginFirebase";
 
 const Intro = () => {
-  // const [stickySection, setStickySection] = useState(null);
+  // const section1Ref = useRef(null);
+  const sectionRefs = useRef([]);
 
-  // const handleScroll = () => {
-  //   const sections = document.querySelectorAll('.section');
-  //   let lastSticky = null;
+  const handleScroll = () => {
+    const scrollTop = window.scrollY;
+    // const sections = [section2Ref, section3Ref, section4Ref, section5Ref];
 
-  //   sections.forEach((section) => {
-  //     const rect = section.getBoundingClientRect();
-  //     if (rect.top <= 0) {
-  //       lastSticky = section.id;
-  //     }
-  //   });
+    sections.forEach((sectionRef, index) => {
+      const section = sectionRef.current;
+      if (section) {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        const nextSection = sectionRefs.current[index + 1]?.current;
+        const nextSectionTop = nextSection?.offsetTop;
 
-  //   setStickySection(lastSticky);
-  // };
-
-  // useEffect(() => {
-  //   window.addEventListener('scroll', handleScroll);
-  //   return () => window.removeEventListener('scroll', handleScroll);
-  // }, []);
+        if (
+          scrollTop >= sectionTop &&
+          (!nextSectionTop || scrollTop < nextSectionTop)
+        ) {
+          section.classList.add("sticky");
+        } else {
+          section.classList.remove("sticky");
+        }
+      }
+    });
+  };
 
   useEffect(() => {
-    console.log(auth.currentUser);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -82,7 +89,10 @@ const Intro = () => {
             Scroll Down
           </div>
         </div>
-        <div className="secondIntro section">
+        <div
+          className="secondIntro section"
+          ref={(el) => (sectionRefs.current[0] = el)}
+        >
           <img
             src="src/assets/deliveryManSecond.jpg"
             alt=""
@@ -111,7 +121,10 @@ const Intro = () => {
             </NavLink>
           </div>
         </div>
-        <div className="thirdIntro section">
+        <div
+          className="thirdIntro section"
+          ref={(el) => (sectionRefs.current[1] = el)}
+        >
           <div className="lefttext">
             <h1>Explore & Order with Ease</h1>
             <h2>Find Restaurants Near You on the Map</h2>
@@ -136,7 +149,7 @@ const Intro = () => {
             <img src="src/assets/map1.png" alt="" />
           </div>
         </div>
-        <div className="reviews">
+        <div className="reviews" ref={(el) => (sectionRefs.current[2] = el)}>
           <div className="rev">
             <h3>Jane Doe ⭐⭐⭐⭐⭐</h3>
             <p>
@@ -169,7 +182,7 @@ const Intro = () => {
           {/* <div className="rev"></div> */}
           {/* <div className="rev"></div> */}
         </div>
-        <div className="footer">
+        <div className="footer" ref={(el) => (sectionRefs.current[3] = el)}>
           <div className="footerText">
             <h1>Project made by failure</h1>
           </div>

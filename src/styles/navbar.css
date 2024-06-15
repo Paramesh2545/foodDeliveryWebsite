@@ -186,3 +186,8 @@
   align-items: center;
   height: 10vh;
 }
+.logoimg{
+  position: relative;
+  width: 80px;
+  
+}

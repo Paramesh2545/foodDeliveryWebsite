@@ -3,13 +3,23 @@
   grid-template-columns: repeat(auto-fill, 200px);
   gap: 20px;
 }
-.link:hover {
+@media screen and (max-width: 760px) {
+  .resmainbody-light,
+  .resmainbody-dark,
+  .outerMain {
+    /* grid-template-columns: 1fr; */
+  }
+}
+.moveUP {
+  transition: all ease-in-out 0.3s;
+}
+.moveUP:hover {
   transform: translateY(-10px);
 }
 .resmainbody-light,
 .resmainbody-dark {
   position: relative;
-  /* height: 350px; */
+  height: 350px;
   /* height: calc(fit-content + ); */
   padding: 10px;
   margin-bottom: 20px;
@@ -31,13 +41,6 @@
   background-color: #422a5b;
   /* color: white; */
 }
-
-.link {
-  position: relative;
-  /* display: flex; */
-  /* max-width: 450px; */
-  height: 25rem;
-}
 .resmainbody-light p {
   text-decoration: none;
 }
@@ -57,7 +60,7 @@
 }
 
 .restImg {
-  height: 10rem;
+  height: 100%;
   max-width: 50%;
   border-radius: 20px;
 }
@@ -161,6 +164,7 @@
   color: black;
   height: 30px;
   width: 30px;
+  transition: all ease-in-out 0.5s;
 }
 .resthird {
   /* width: 50%; */
@@ -201,6 +205,10 @@
 .orderFood {
   background-color: #ccd5ae;
 }
+.order h3:nth-child(0) {
+  color: #ff7f50;
+}
+
 .back {
   height: 50px;
   width: 50px;

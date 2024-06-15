@@ -4,39 +4,32 @@ import { MdKeyboardArrowLeft } from "react-icons/md";
 import { MdKeyboardArrowRight } from "react-icons/md";
 
 const Advert = () => {
+  const [present, setPresent] = useState(0);
   const images = [
-    { src: "./src/assets/ratna_restaurant.jpg" },
-    { src: "./src/assets/second_img.jpg" },
-    { src: "./src/assets/third_image.jpg" },
+    { src: "/src/assets/ratna_restaurant.jpg" },
+    { src: "/src/assets/second_img.jpg" },
+    { src: "/src/assets/third_image.jpg" },
   ];
   const res = [
     { name: "Ratna Restaurant" },
     { name: "Parivaar Veg Restaurant" },
     { name: "Mandi Restaurant" },
   ];
-  const [present, setPresent] = useState(0);
   useEffect(() => {
     const change = setInterval(() => {
-      // setPresent(present + 1);
-      // console.log(present);
       if (present === 2) {
         setPresent(0);
-        // console.log(present);
       } else {
         setPresent(present + 1);
-        // console.log(present);
       }
     }, 3000);
     return () => clearInterval(change);
   }, [present]);
-
   const forward = () => {
     if (present === 2) {
       setPresent(0);
-      // console.log(present);
     } else {
       setPresent(present + 1);
-      // console.log(present);
     }
   };
   const back = () => {

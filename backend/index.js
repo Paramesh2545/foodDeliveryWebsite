@@ -63,22 +63,32 @@ app.get("/menuItems", async (req, res) => {
 app.get("/restaurantDetails", async (req, res) => {
   try {
     // const snapshot
-    const restaurant = db.collection("Restaurants");
-    const snapshot = await restaurant.get();
-    const resDetails = [];
-    snapshot.forEach((doc) => {
-      resDetails.push(doc.data());
-    });
-    console.log(resDetails);
-    return res.send(resDetails);
+    // const restaurant = db.collection("Restaurants");
+    // const snapshot = await restaurant.get();
+    // const resDetails = [];
+    // snapshot.forEach((doc) => {
+    //   resDetails.push(doc.data());
+    // });
+    // console.log(resDetails);
+    // return res.send(resDetails);
+    const rest = db.collection("Restaurants");
+    const documents = await rest.get();
+
+    // documents.forEach((doc) => {
+    //   console.log(doc.data());
+    // });
+
+    return res.status(200).json("ok");
   } catch (err) {
     console.error(err);
+    return res.status(500).json(err);
   }
 });
 
 app.get("/getCart", async (req, res) => {
   try {
-    const uid = req.query.uid;
+    // const uid = req.query.uid;
+    const uid="qFbBpWPIfDbRc8aGhAhDvZ6Raoy1";
     const cart = db.collection("cartItems");
     console.log(uid);
     cart

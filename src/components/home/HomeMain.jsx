@@ -14,6 +14,7 @@ import { MdFavoriteBorder } from "react-icons/md";
 import { MdOutlineFavorite } from "react-icons/md";
 import { MdOutlineMenuBook } from "react-icons/md";
 import { useFav } from "../../Hooks/useFav";
+import DbRest from "./DbRest";
 
 const HomeMain = (props) => {
   const { setRestaurantData, cat, setCat, darkMode, setDarkMode } =
@@ -193,6 +194,7 @@ const HomeMain = (props) => {
           </div>
         </div>
       )}
+      <DbRest />
       {resDetails && (
         <div className="outerMain">
           {resDetails.data.map((restaurant) => (

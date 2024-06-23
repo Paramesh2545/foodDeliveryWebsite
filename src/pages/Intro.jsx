@@ -11,41 +11,39 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { useRestaurantContext } from "../context/RestaurantContext";
 import { PiMouseScrollDuotone } from "react-icons/pi";
-import { NavLink } from "react-router-dom";
+import { NavLink, redirect, useNavigate } from "react-router-dom";
 import { auth } from "../loginFirebase";
+// import Background from "../components/Intro/Background";
+gsap.registerPlugin(ScrollTrigger);
 
 const Intro = () => {
-  // const section1Ref = useRef(null);
   const sectionRefs = useRef([]);
-
-  const handleScroll = () => {
-    const scrollTop = window.scrollY;
-    // const sections = [section2Ref, section3Ref, section4Ref, section5Ref];
-
-    sections.forEach((sectionRef, index) => {
-      const section = sectionRef.current;
-      if (section) {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        const nextSection = sectionRefs.current[index + 1]?.current;
-        const nextSectionTop = nextSection?.offsetTop;
-
-        if (
-          scrollTop >= sectionTop &&
-          (!nextSectionTop || scrollTop < nextSectionTop)
-        ) {
-          section.classList.add("sticky");
-        } else {
-          section.classList.remove("sticky");
-        }
-      }
-    });
-  };
-
+  const navigate = useNavigate();
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    gsap.to(".delimg", {
+      scrollTrigger: {
+        trigger: ".delimg",
+        toggleActions: "restart none none none",
+      },
+      opacity: 1,
+      duration: 2,
+      y: 0,
+    });
+
+    gsap.to(".lefttext", {
+      scrollTrigger: {
+        trigger: ".lefttext",
+        toggleActions: "restart none none none",
+      },
+      opacity: 1,
+      duration: 2,
+      x: 0,
+    });
   }, []);
+
+  const gotoRest = () => {
+    navigate("/restaurant");
+  };
 
   return (
     <div className="fullIntroDIV">
@@ -76,14 +74,45 @@ const Intro = () => {
                 groundColor="#000000"
                 intensity={8}
               />
-              <Cafe className="model" position={[-1, -3, -15]} />
+              <Cafe className="model" position={[5, -3, -15]} />
+              {/* <Background /> */}
             </ScrollControls>
           </Suspense>
         </Canvas>
       </div>
       <div className="mainIntro section">
         <div className="text">
-          <h1>WELCOME TO HUNGRYHEIST!</h1>
+          <div className="intromainside">
+            <h3>WELCOME TO HUNGRYHEIST!</h3>
+            <p>Where only quality food will be availabel.</p>
+            <div className="buttons">
+              <button className="boton-elegante" onClick={gotoRest}>
+                Order Now
+              </button>
+            </div>
+            <div className="iabout">
+              <div className="iaboutinner">
+                <img
+                  src="/src/assets/thumbs-up.png"
+                  alt=""
+                  className="IntrIcon"
+                />
+                <p className="iconp">240k Reviews</p>
+              </div>
+              <div className="iaboutinner">
+                <img
+                  src="/src/assets/dining-table.png"
+                  alt=""
+                  className="IntrIcon"
+                />
+                <p className="iconp">2500+ Restaurants</p>
+              </div>
+              <div className="iaboutinner">
+                <img src="/src/assets/basket.png" alt="" className="IntrIcon" />
+                <p className="iconp">600+ FoodItems</p>
+              </div>
+            </div>
+          </div>
           <div className="scroll">
             <PiMouseScrollDuotone />
             Scroll Down
@@ -96,9 +125,9 @@ const Intro = () => {
           <img
             src="src/assets/deliveryManSecond.jpg"
             alt=""
-            className="image"
+            className="image delimg"
           />
-          <div className="secondText">
+          <div className="secondText delimg">
             <h1>Lightning-Fast Delivery</h1>
             <h3>Fresh Food, Delivered at Your Doorstep in No Time!</h3>
             <p>
@@ -122,7 +151,7 @@ const Intro = () => {
           </div>
         </div>
         <div
-          className="thirdIntro section"
+          className="thirdIntro section "
           ref={(el) => (sectionRefs.current[1] = el)}
         >
           <div className="lefttext">
@@ -149,7 +178,7 @@ const Intro = () => {
             <img src="src/assets/map1.png" alt="" />
           </div>
         </div>
-        <div className="reviews" ref={(el) => (sectionRefs.current[2] = el)}>
+        <div className="reviews">
           <div className="rev">
             <h3>Jane Doe ⭐⭐⭐⭐⭐</h3>
             <p>
@@ -182,7 +211,7 @@ const Intro = () => {
           {/* <div className="rev"></div> */}
           {/* <div className="rev"></div> */}
         </div>
-        <div className="footer" ref={(el) => (sectionRefs.current[3] = el)}>
+        <div className="footer" ref={(el) => (sectionRefs.current[2] = el)}>
           <div className="footerText">
             <h1>Project made by failure</h1>
           </div>

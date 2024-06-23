@@ -3,6 +3,11 @@
   margin: 0;
   padding: 0;
 }
+.delimg {
+  position: relative;
+  opacity: 0;
+  transform: translateY(120px);
+}
 
 .fullIntro {
   height: 100vh;
@@ -13,8 +18,9 @@
   height: 100vh;
   width: 100%;
   position: fixed;
-  background-color: #f8f4e3;
-  background-image: url("../assets/original_bg (1).png");
+  /* background: linear-gradient(#76B852,#8DC265); */
+  background-color: rgb(32, 31, 31);
+  /* background-image: url("../assets/original_bg (1).png"); */
   background-size: cover;
 }
 .mainIntro {
@@ -34,14 +40,79 @@
   align-items: center;
   height: 100vh;
   font-family: "Montserrat", sans-serif;
-  font-size: xxx-large;
-  font-weight: 700;
+  /* font-size: xxx-large; */
+  /* font-weight: 700; */
   color: #ffffff;
   font-size: 48px;
   position: sticky;
   z-index: 10;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 }
+.intromainside {
+  width: 100%;
+}
+.intromainside h3 {
+  width: 500px;
+  color: white;
+}
+.iabout {
+  margin-top: 50px;
+  display: flex;
+}
+.iaboutinner {
+  margin: 0px 20px;
+}
+
+.iconp {
+  width: 50%;
+  position: relative;
+  left: 10px;
+  font-size: large;
+}
+.IntrIcon {
+  height: 70px;
+}
+
+.boton-elegante {
+  padding: 15px 30px;
+  border: 2px solid #2c2c2c;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 30px;
+  transition: all 0.4s ease;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+.boton-elegante::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.25) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: scale(0);
+  transition: transform 0.5s ease;
+}
+
+.boton-elegante:hover::after {
+  transform: scale(4);
+}
+
+.boton-elegante:hover {
+  border-color: #666666;
+  background: #292929;
+}
+
 .secondIntro {
   position: sticky;
   height: 100vh;
@@ -59,7 +130,10 @@
 .scroll {
   position: absolute;
   bottom: 0;
-  color: black;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .secondIntro img {
   position: relative;
@@ -173,10 +247,12 @@
   width: 50vw;
   position: relative;
   top: 25px;
+  opacity: 0;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  transform: translateX(-350px);
 }
 .lefttext h1 {
   margin: 10px;

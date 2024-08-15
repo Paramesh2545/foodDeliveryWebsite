@@ -158,6 +158,7 @@ const HomeBody = (props) => {
         console.log("from side get location");
         console.log("Latitude:", latitude);
         console.log("Longitude:", longitude);
+        setSideLocation(false);
       })
       .catch((error) => {
         // Handle error
@@ -167,7 +168,7 @@ const HomeBody = (props) => {
   const searchRes = async (e) => {
     setSearch(e.target.value);
     if (search.length > 2) {
-      // setSearching(true);
+      setSearching(true);
       const url = `https://google-maps-api-free.p.rapidapi.com/google-autocomplete?input="${search}"`;
       const options = {
         method: "GET",
@@ -253,7 +254,7 @@ const HomeBody = (props) => {
               <input
                 type="text"
                 placeholder="Search for area, stree name.."
-                onChange={searchRes}
+                onChange={(e) => searchRes(e)}
               />
             </div>
             {!searching && (
@@ -268,14 +269,19 @@ const HomeBody = (props) => {
             {searching && (
               <div className="locationItems">
                 <ul style="list-style: none;">
-                  {searchResult.map((location, index) => (
-                    <div className="searchRes">
-                      <li key={index} onClick={selected(location.description)}>
-                        {location.description}
-                      </li>
-                      <div className="line"></div>
-                    </div>
-                  ))}
+                  {searchResult
+                    ? searchResult.map((location, index) => (
+                        <div className="searchRes">
+                          <li
+                            key={index}
+                            onClick={selected(location.description)}
+                          >
+                            {location.description}
+                          </li>
+                          <div className="line"></div>
+                        </div>
+                      ))
+                    : null}
                 </ul>
               </div>
             )}

@@ -47,7 +47,7 @@ const Intro = () => {
 
   return (
     <div className="fullIntroDIV">
-      <div className="canvas">
+      {/* <div className="canvas">
         <Canvas
           className="fullIntro"
           shadows
@@ -75,17 +75,15 @@ const Intro = () => {
                 intensity={8}
               />
               <Cafe className="model" position={[5, -3, -15]} />
-              {/* <Background /> */}
             </ScrollControls>
           </Suspense>
         </Canvas>
-      </div>
+      </div> */}
       <div className="mainIntro section">
         <div className="text">
           <div className="intromainside">
-            <h3>WELCOME TO HUNGRYHEIST!</h3>
-            <p>Where only quality food will be availabel.</p>
-            <div className="buttons">
+            <h1>HUNGRY HEIST</h1>
+            {/* <div className="buttons">
               <button className="boton-elegante" onClick={gotoRest}>
                 Order Now
               </button>
@@ -111,7 +109,7 @@ const Intro = () => {
                 <img src="/src/assets/basket.png" alt="" className="IntrIcon" />
                 <p className="iconp">600+ FoodItems</p>
               </div>
-            </div>
+            </div> */}
           </div>
           <div className="scroll">
             <PiMouseScrollDuotone />

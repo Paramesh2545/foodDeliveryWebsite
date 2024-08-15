@@ -84,7 +84,5 @@ const ProfileWithNav = () => (
   </>
 );
 
-// Assuming Nav component is imported here
-// import Nav from "./Nav";
 
 export default App;

@@ -374,21 +374,25 @@
   transform: rotate(-45deg);
 }
 
-.hamburger input:checked ~ .innerNavbar {
-  display: flex;
-}
-
 .hamburger input:checked + svg .line-top-bottom {
   stroke-dasharray: 20 300;
   stroke-dashoffset: -32.42;
 }
-.small {
+/* .small {
   display: none;
-}
+} */
 
 @media screen and (max-width: 610px) {
   .navmain {
     display: flex;
     justify-content: space-between;
   }
+  .innerNavbar,
+  .theme {
+    display: none;
+  }
+}
+
+.links-container .hamburger input:checked ~ .small {
+  display: block;
 }

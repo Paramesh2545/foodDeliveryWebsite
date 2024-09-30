@@ -76,52 +76,13 @@
   height: 50px;
   /* margin-left: 10px; */
 }
-@media (max-width: 400px) {
-  /* .hamburger {
-    display: block;
-  }
-  .ham {
-    display: flex;
-    justify-content: start;
-    margin: 10px;
-    padding: 0;
-    left: 0;
-    cursor: pointer;
-  }
-  .navitems {
-    display: none;
-  } */
-  /* .navmain {
-    display: none;
-  }
-  .outerMain,
-  .link,
-  .dishes,
-  .catogery {
-    margin-left: none;
-  } */
-}
+
 .close {
   height: 50px;
   width: 50px;
   margin-bottom: 10px;
 }
-/* @media (max-width: 800px) {
-  .innernav,
-  .navmain {
-    bottom: 0;
-    width: 100vw;
-    height: 2rem;
-  }
-  .innernav {
-    display: flex;
-    flex-direction: row;
-  }
-  .link-text {
-    left: 0;
-    bottom: calc(100% + 15px);
-  }
-} */
+
 .push {
   position: absolute;
   padding: 10px;
@@ -206,135 +167,12 @@
 }
 .logoimg {
   position: relative;
-  width: 120px;
+  /* width: 120px; */
   border-radius: 50%;
   top: -12px;
   height: 100px;
 }
-.Btn {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 45px;
-  height: 45px;
-  border: none;
-  border-radius: 50%;
-  margin-right: 10px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  transition-duration: 0.3s;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.199);
-  background-color: rgb(255, 65, 65);
-}
 
-/* plus sign */
-.sign {
-  width: 100%;
-  transition-duration: 0.3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.sign svg {
-  width: 17px;
-}
-
-.sign svg path {
-  fill: white;
-}
-/* text */
-.Logtext {
-  position: absolute;
-  right: 0%;
-  width: 0%;
-  opacity: 0;
-  color: white;
-  font-size: 1.2em;
-  font-weight: 600;
-  transition-duration: 0.3s;
-}
-/* hover effect on button width */
-.Btn:hover {
-  width: 125px;
-  border-radius: 40px;
-  transition-duration: 0.3s;
-}
-
-.Btn:hover .sign {
-  width: 30%;
-  transition-duration: 0.3s;
-  padding-left: 20px;
-}
-/* hover effect button's text */
-.Btn:hover .Logtext {
-  opacity: 1;
-  width: 70%;
-  transition-duration: 0.3s;
-  padding-right: 10px;
-}
-/* button click effect*/
-.Btn:active {
-  transform: translate(2px, 2px);
-}
-.cta {
-  position: relative;
-  margin: auto;
-  padding: 12px 18px;
-  transition: all 0.2s ease;
-  border: none;
-  background: none;
-  cursor: pointer;
-}
-
-.cta:before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  border-radius: 50px;
-  background: #dfceff;
-  width: 45px;
-  height: 45px;
-  transition: all 0.3s ease;
-}
-
-.cta span {
-  position: relative;
-  font-family: "Ubuntu", sans-serif;
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  color: #6a32db;
-}
-
-.cta svg {
-  position: relative;
-  top: 0;
-  margin-left: 10px;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: #6a32db;
-  stroke-width: 2;
-  transform: translateX(-5px);
-  transition: all 0.3s ease;
-}
-
-.cta:hover:before {
-  width: 100%;
-  background: #dfceff;
-}
-
-.cta:hover svg {
-  transform: translateX(0);
-}
-
-.cta:active {
-  transform: scale(0.95);
-}
 .hamburger {
   cursor: pointer;
   display: flex;

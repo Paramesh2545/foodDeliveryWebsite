@@ -38,6 +38,7 @@ const Nav = () => {
   window.addEventListener("resize", handleResize);
   const handlePush = () => {
     setHamClicked(!hamClicked);
+    console.log(hamClicked);
   };
   return (
     <div className="navmain">
@@ -51,7 +52,7 @@ const Nav = () => {
       <div className="links-container">
         {small && (
           <label className="hamburger">
-            <input type="checkbox" />
+            <input type="checkbox" onClick={handlePush} />
             <svg viewBox="0 0 32 32">
               <path
                 class="oline line-top-bottom"
@@ -62,8 +63,9 @@ const Nav = () => {
           </label>
         )}
       </div>
-
-      <div className={small ? "innerNavbar small" : "innerNavbar"}>
+      <div
+        className={small ? "innerNavbar small" : "innerNavbar"}
+      >
         {/* <div className="push" onClick={handlePush}>
           <FaLessThan />
         </div> */}

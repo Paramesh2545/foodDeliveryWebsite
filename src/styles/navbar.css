@@ -216,21 +216,19 @@
   stroke-dasharray: 20 300;
   stroke-dashoffset: -32.42;
 }
-/* .small {
-  display: none;
-} */
 
 @media screen and (max-width: 610px) {
   .navmain {
     display: flex;
     justify-content: space-between;
   }
-  .innerNavbar,
-  .theme {
-    display: none;
+  .navitems{
+    display: flex;
+    flex-direction: row;
+    height: auto;
   }
 }
 
-.links-container .hamburger input:checked ~ .small {
+/* .links-container .hamburger input:checked ~ .small {
   display: block;
-}
+} */
